@@ -1,71 +1,78 @@
-// globals
-var score = 0;
-var games = 0;
-var userChoice = "";
-var computerChoice = 0;
+let computerScore = 1;
+let playerScore = 1;
+const pScore = document.getElementById('playerScore');
+const cScore = document.getElementById('computerScore');
+const buttons = document.querySelectorAll('.selection button');
+const showIcon = document.querySelector('.show i');
+const computerShowIcon = document.querySelector('.computer i');
 
-function printer(msg) {
-  document.getElementById('result').innerHTML = msg;
-  document.getElementById('score').innerHTML = score + "/" + games;
-}
+const randomClasses = ["fas fa-hand-rock", "fas fa-hand-paper","fas fa-hand-scissors"];
+const text = document.getElementById('demo');
+const text2 = document.getElementById('demo2');
 
-// reseting
-document.getElementById('reset').onclick = function() {
-  score = 0;
-  games = 0;
-  printer("&nbsp;");
+// Game Functionality.
+const game = () =>{
+    buttons.forEach(btn =>{
+        btn.addEventListener('click',(e)=>{
+        // Random rock paper scissor for the computer and clicked ones for the player
+           let clickedBtn = e.target.className;
+           showIcon.className = clickedBtn;
+           let randomNum = Math.floor(Math.random() * randomClasses.length);
+           computerShowIcon.className = randomClasses[randomNum];
+           // Game Score.
+           // If it's a Tie .
+           if(showIcon.className === computerShowIcon.className){
+               pScore.innerHTML = pScore.innerHTML;
+               cScore.innerHTML = cScore.innerHTML;
+               text.innerHTML = "It's a Tie ! ";
+               text.style.color = 'orange';
+               text2.innerHTML = text.innerHTML;
+               text2.style.color = 'orange';
+           } // if it's not a Tie.
+           else if(showIcon.className === randomClasses[0] && computerShowIcon.className === randomClasses[2]){
+               pScore.innerHTML = playerScore;
+               playerScore++;
+               text.innerHTML = "It's a Win ! ";
+               text.style.color = 'rgb(1, 146, 1)';
+               text2.innerHTML = text.innerHTML;
+               text2.style.color = 'rgb(1, 146, 1)';
+           }else if(showIcon.className === randomClasses[0] && computerShowIcon.className === randomClasses[1]){
+               cScore.innerHTML = computerScore;
+               computerScore++;
+               text.innerHTML = "You Loosed ! ";
+               text.style.color = 'red';
+               text2.innerHTML = text.innerHTML;
+               text2.style.color = 'red';
+           }else if(showIcon.className === randomClasses[1] && computerShowIcon.className === randomClasses[2]){
+               cScore.innerHTML = computerScore;
+               computerScore++;
+               text.innerHTML = "You Loosed ! ";
+               text.style.color = 'red';
+               text2.innerHTML = text.innerHTML;
+               text2.style.color = 'red';
+           }else if(showIcon.className === randomClasses[1] && computerShowIcon.className === randomClasses[0]){
+               pScore.innerHTML = playerScore;
+               playerScore++;
+               text.innerHTML = "It's a Win ! ";
+               text.style.color = 'rgb(1, 146, 1)';
+               text2.innerHTML = text.innerHTML;
+               text2.style.color = 'rgb(1, 146, 1)';
+           }else if(showIcon.className === randomClasses[2] && computerShowIcon.className === randomClasses[0]){
+               cScore.innerHTML = computerScore;
+               computerScore++;
+               text.innerHTML = "You Loosed ! ";
+               text.style.color = 'red';
+               text2.innerHTML = text.innerHTML;
+               text2.style.color = 'red';
+           }else if(showIcon.className === randomClasses[2] && computerShowIcon.className === randomClasses[1]){
+               pScore.innerHTML = playerScore;
+               playerScore++;
+               text.innerHTML = "It's a Win ! ";
+               text.style.color = 'rgb(1, 146, 1)';
+               text2.innerHTML = text.innerHTML;
+               text2.style.color = 'rgb(1, 146, 1)';
+           }
+        });
+    });
 }
-
-// handling user's choice
-function userChose(choice){
-	userChoice = choice;
- 	compare(userChoice, compChoose());
-}
-
-// handling computer's choice
-function compChoose() {
-  computerChoice = Math.random();
-  if (computerChoice < 0.34) {
-    computerChoice = "rock";
-  } else if (computerChoice < 0.67) {
-    computerChoice = "paper";
-  } else {
-    computerChoice = "scissor";
-  }
-  return computerChoice;
-}
-
-// comparison
-// parameters have to be in "you, me" order!
-function compare(user, comp) {
-  var result = "";
-  if (user === comp) {
-    // not sure how a tie should affect the score so it just doesn't ¯\_(ツ)_/¯
-    result = "tie";
-  } else if (user === "rock") {
-    games++;
-    if (comp === "paper") {
-      result = "i chose paper. you lose."
-    } else {
-      result = "i chose scissor. you win."
-      score++;
-    }
-  } else if (user === "paper") {
-    games++;
-    if (comp === "scissor") {
-      result = "i chose scissor. you lose."
-    } else {
-      result = "i chose rock. you win."
-      score++;
-    }
-  } else {
-    games++;
-    if (comp === "rock") {
-      result = "i chose rock. you lose."
-    } else {
-      result = "i chose paper. you win."
-      score++;
-    }
-  }
-  printer(result);
-}
+game();
