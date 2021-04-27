@@ -1,66 +1,72 @@
-@mixin centering{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-$fontColor : #fff;
-$primary   : #99ccff;
-$secondary : #66b2ff;
-$bigtext   : 50px;
-$liltext   : 20px;
-
 body{
-  background: $primary;
-  color: $fontColor;
-  font-family: "Arial MS", Arial, sans-serif;
-  font-size: $liltext;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-a{
-  color: $fontColor;
-  text-decoration: none;
+h1{
+    font-family: sans-serif;
+    font-weight: 800;
+    margin: 15px 0;
 }
-
-button{
-  font-size: $bigtext;
-  background: none;
-  border: none;
-  color: $fontColor;
-  cursor: pointer;
-  outline: 0;
+.container{
+    display: flex;
 }
-
-.notes button{
-  font-size: $liltext;
-  background: $secondary;
-  color: #fff;
-  border-radius: 4px;
+.container .section{
+    width: 350px;
+    margin: 20px 50px;
 }
-
-.notes button:hover{
-  background: #4da5ff;
+.section .info{
+    background: rgb(10, 10, 10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
 }
-
-.game{
-  @include centering;
-  font-size: $bigtext;
+.info span , .info h3{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0px 10px;
+    font-family: sans-serif;
+    color: white;
 }
-
-.result{
-  margin-top: 20px;
-  font-size: 20px;
+.show{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background : rgb(41, 40, 40);
+    height: 220px;
 }
-
-.notes{
-  position: absolute;
-  top: 5;
-  left: 5;
+.show i{
+    font-size: 100px;
+    color: orange;
 }
-
-::selection{
-  background: $secondary;
-  color: $primary;
+h2{
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 5px;
+}
+.selection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 100px;
+}
+.selection button{
+    margin: 0 20px;
+    padding: 25px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background : rgb(41, 40, 40);
+    font-size: 33px;
+    color: orange;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
