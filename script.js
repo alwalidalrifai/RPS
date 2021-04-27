@@ -5,11 +5,9 @@ const cScore = document.getElementById('computerScore');
 const buttons = document.querySelectorAll('.selection button');
 const showIcon = document.querySelector('.show i');
 const computerShowIcon = document.querySelector('.computer i');
-
 const randomClasses = ["fas fa-hand-rock", "fas fa-hand-paper","fas fa-hand-scissors"];
 const text = document.getElementById('demo');
 const text2 = document.getElementById('demo2');
-
 // Game Functionality.
 const game = () =>{
     buttons.forEach(btn =>{
