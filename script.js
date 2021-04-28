@@ -8,7 +8,6 @@ const computerShowIcon = document.querySelector('.computer i');
 const randomClasses = ["fas fa-hand-rock", "fas fa-hand-paper","fas fa-hand-scissors"];
 const text = document.getElementById('demo');
 const text2 = document.getElementById('demo2');
-// Game Functionality.
 const game = () =>{
     buttons.forEach(btn =>{
         btn.addEventListener('click',(e)=>{
@@ -30,42 +29,42 @@ const game = () =>{
            else if(showIcon.className === randomClasses[0] && computerShowIcon.className === randomClasses[2]){
                pScore.innerHTML = playerScore;
                playerScore++;
-               text.innerHTML = "It's a Win ! ";
+               text.innerHTML = "You Won ! ";
                text.style.color = 'rgb(1, 146, 1)';
                text2.innerHTML = text.innerHTML;
                text2.style.color = 'rgb(1, 146, 1)';
            }else if(showIcon.className === randomClasses[0] && computerShowIcon.className === randomClasses[1]){
                cScore.innerHTML = computerScore;
                computerScore++;
-               text.innerHTML = "You Loosed ! ";
+               text.innerHTML = "You Lost ! ";
                text.style.color = 'red';
                text2.innerHTML = text.innerHTML;
                text2.style.color = 'red';
            }else if(showIcon.className === randomClasses[1] && computerShowIcon.className === randomClasses[2]){
                cScore.innerHTML = computerScore;
                computerScore++;
-               text.innerHTML = "You Loosed ! ";
+               text.innerHTML = "You Lost ! ";
                text.style.color = 'red';
                text2.innerHTML = text.innerHTML;
                text2.style.color = 'red';
            }else if(showIcon.className === randomClasses[1] && computerShowIcon.className === randomClasses[0]){
                pScore.innerHTML = playerScore;
                playerScore++;
-               text.innerHTML = "It's a Win ! ";
+               text.innerHTML = "You Won ! ";
                text.style.color = 'rgb(1, 146, 1)';
                text2.innerHTML = text.innerHTML;
                text2.style.color = 'rgb(1, 146, 1)';
            }else if(showIcon.className === randomClasses[2] && computerShowIcon.className === randomClasses[0]){
                cScore.innerHTML = computerScore;
                computerScore++;
-               text.innerHTML = "You Loosed ! ";
+               text.innerHTML = "You Lost ! ";
                text.style.color = 'red';
                text2.innerHTML = text.innerHTML;
                text2.style.color = 'red';
            }else if(showIcon.className === randomClasses[2] && computerShowIcon.className === randomClasses[1]){
                pScore.innerHTML = playerScore;
                playerScore++;
-               text.innerHTML = "It's a Win ! ";
+               text.innerHTML = "You Won ! ";
                text.style.color = 'rgb(1, 146, 1)';
                text2.innerHTML = text.innerHTML;
                text2.style.color = 'rgb(1, 146, 1)';
